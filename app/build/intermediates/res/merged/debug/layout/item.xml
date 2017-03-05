@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dp" >
+
+    <!--
+       某些会获取焦点的控件（如CheckBox、Button）作为Item的组件会抢占ListView的焦点，
+       致使ListView不可点击，解决方案：
+       1、（CheckBox、Button等）Item控件设置属性android:focusable="false"
+       2、外层布局设置android:descendantFocusability="blocksDescendants"
+    -->
+
+    <!--
+        CheckBox在这里用于测试两个功能：
+        1、抢占ListView焦点问题
+        2、ListView复用导致Item内容错乱的问题
+        具体解决办法详见源码
+    -->
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:text="Android新技能 Get" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/cb"
+        android:maxLines="2"
+        android:text="Android-打造万能的ListView和GridView适配器"
+        android:textColor="#898989" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginTop="10dp"
+        android:text="2015-08-05"
+        android:textColor="#898989"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginTop="10dp"
+        android:background="#20793D"
+        android:maxLines="1"
+        android:text="10086"
+        android:textColor="#FFF" />
+
+</RelativeLayout>
