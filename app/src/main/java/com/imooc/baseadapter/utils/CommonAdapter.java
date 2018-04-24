@@ -24,7 +24,45 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		this.mlayoutId = layoutId;
 		mInflater = LayoutInflater.from(context);
 	}
+	
+	
+	/**
+	 * 刷新:
+	 * 注意list是否初始化
+	 *
+	 * @param mList 请确保mList已初始化并填充数据。
+	 */
+	public void refreshData(List<T> mList) {
+		if (null != mDatas) {
+			if (mDatas.size() > 0) {
+				mDatas.clear();
+			}
 
+			mDatas.addAll(mList);
+			notifyDataSetChanged();
+		}
+		// =表示地址的引用，list可能未初始化
+		//list = mList;
+	}
+
+	/**
+	 * 加载：
+	 * 注意list是否初始化
+	 *
+	 * @param mList 请确保mList已初始化并填充数据。
+	 */
+	public void loadMoreData(List<T> mList) {
+		if (mList == null || mList.isEmpty()) {
+			return;
+		}
+
+		if (null != mDatas) {
+			mDatas.addAll(mList);
+			notifyDataSetChanged();
+		}
+	}
+	
+	
 	/**
 	 * @see android.widget.Adapter#getCount()
 	 */
