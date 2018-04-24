@@ -13,10 +13,10 @@ import android.widget.BaseAdapter;
  * 继承了BaseAdapter，然后借助CommonViewHolder再次封装
  */
 public abstract class CommonAdapter<T> extends BaseAdapter {
-	protected Context mContext;
-	protected List<T> mDatas;
-	protected LayoutInflater mInflater;
-	protected int mlayoutId;
+	private Context mContext;
+	private List<T> mDatas;
+	private LayoutInflater mInflater;
+	private int mlayoutId;
 
 	public CommonAdapter(Context context, List<T> datas, int layoutId) {
 		this.mContext = context;
