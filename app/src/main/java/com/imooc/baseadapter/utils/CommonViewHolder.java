@@ -161,22 +161,22 @@ public class CommonViewHolder {
         return this;
     }
     
-    public CommonViewHolder setText(int viewId, int text) {
+    public CommonViewHolder setText(int viewId, int resId) {
         TextView tv = getView(viewId);
-        tv.setText(text);
+        tv.setText(resId);
         return this;
     }
 
     public CommonViewHolder setTextColor(int viewId, int colorId) {
         TextView view = getView(viewId);
+        //view.setTextColor(context.getResources().getColor(colorId));
         view.setTextColor(ContextCompat.getColor(context, colorId));
         return this;
     }
 
-    public CommonViewHolder setTextColorRes(int viewId, int textColorRes) {
+    public CommonViewHolder setTextColor(int viewId, String colorValue) {
         TextView view = getView(viewId);
-        //view.setTextColor(context.getResources().getColor(textColorRes));
-        view.setTextColor(ContextCompat.getColor(context, textColorRes));
+        view.setTextColor(Color.parseColor(colorValue));
         return this;
     }
 
