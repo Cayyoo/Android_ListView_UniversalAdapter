@@ -33,6 +33,10 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	 * @param mList 请确保mList已初始化并填充数据。
 	 */
 	public void refreshData(List<T> mList) {
+		if (mList == null || mList.isEmpty()) {
+			return;
+		}
+		
 		if (null != mDatas) {
 			if (mDatas.size() > 0) {
 				mDatas.clear();
